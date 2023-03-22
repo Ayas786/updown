@@ -118,7 +118,7 @@ module.exports = {
             })
             .then((data) => {
               console.log(data,"after log in");
-              console.log("sooraj here ");
+              console.log("ayas here ");
               req.session.user = userExsist
               req.session.loggedIn = true;
               res.send({ value: true });   //////HEAD ERROR

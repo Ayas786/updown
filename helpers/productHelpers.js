@@ -116,8 +116,11 @@ module.exports = {
   },
   getCategory: () => {
     return new Promise(async (resolve, reject) => {
-      let category = await db.categories.find({});
-      resolve(category);
+     try{ let category = await db.categories.find({});
+      resolve(category);}
+      catch(error){
+        console.log(error);
+      }
     });
   },
   updateCategory: (cateId, cateDetails) => {
@@ -192,9 +195,14 @@ module.exports = {
 
   addbanner: (details) => {
     return new Promise(async (resolve, reject) => {
-      let data = await db.banner(details);
-      data.save();
-      resolve(data);
+      try{
+        let data = await db.banner(details);
+        data.save();
+        resolve(data);
+      }catch(error){
+        console.log(error);
+      }
+     
     });
   },
   getBanner: () => {
